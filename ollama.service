@@ -1,0 +1,15 @@
+[Unit]
+Description=Ollama Service with Intel Arc GPU Support
+After=network.target
+
+[Service]
+Type=simple
+User=ollama
+Group=ollama
+EnvironmentFile=/etc/ollama/ollama.env
+ExecStart=/usr/local/bin/ollama serve
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
